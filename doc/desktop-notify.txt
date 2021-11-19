@@ -11,7 +11,7 @@
           | |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | \__ \~
           |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|___/~
 
-Version: 0.0.0
+Version: 0.1.0
 Author: Alejandro "HiPhish" Sanchez
 License: MIT License
 

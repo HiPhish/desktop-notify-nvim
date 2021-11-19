@@ -26,17 +26,15 @@ Usage
 
 You can try calling the implementation directly. Example:
 
-```vim
-lua require('desktop_notify').notify_send('Hello from Neovim')
-```
+.. code:: vim
+   lua require('desktop_notify').notify_send('Hello from Neovim')
 
 Once you execute the above command in your running Neovim instance a
 notification native to your OS should open up. In practice you will probably
 want to overwrite the default implementation with this one.
 
-```lua
-vim.notify = require('desktop_notify').notify_send
-```
+.. code:: lua
+   vim.notify = require('desktop_notify').notify_send
 
 
 License
