@@ -10,6 +10,12 @@ operating system's notification facility to display native notifications.
 Currently only shelling out to `notify-send` is implemented, but other
 implementations can be added. Contributions are very welcome.
 
+.. image:: doc/screenshot.png
+   :align: center
+   :alt: Screenshot of a Neovim window with a native desktop notification
+      hovering on top of it. The command-line of the Neovim window shows the
+      command which produced the notification.
+
 
 Installation and dependencies
 #############################
