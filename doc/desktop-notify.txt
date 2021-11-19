@@ -1,0 +1,75 @@
+*desktop-notify.txt*	For Neovim version 0.5
+
+                     ____            _    _~
+                    |  _ \  ___  ___| | _| |_ ___  _ __~
+                    | | | |/ _ \/ __| |/ / __/ _ \| '_ \~
+                    | |_| |  __/\__ \   <| || (_) | |_) |~
+                    |____/ \___||___/_|\_\\__\___/| .__/~
+           _   _       _   _  __ _           _   _|_|~
+          | \ | | ___ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  ___~
+          |  \| |/ _ \| __| | |_| |/ __/ _` | __| |/ _ \| '_ \/ __|~
+          | |\  | (_) | |_| |  _| | (_| (_| | |_| | (_) | | | \__ \~
+          |_| \_|\___/ \__|_|_| |_|\___\__,_|\__|_|\___/|_| |_|___/~
+
+Version: 0.0.0
+Author: Alejandro "HiPhish" Sanchez
+License: MIT License
+
+
+==============================================================================
+TABLE OF CONTENTS                                    *desktop-notify-contents*
+
+    1. Introduction ........................|desktop-notify-intro|
+    2. Reference ...........................|desktop-notify-referencreference|
+       2.1 notify-send .................... |desktop_notify.notify_send|
+
+
+==============================================================================
+INTRODUCTION                                            *desktop-notify-intro*
+
+This plugin provides implementations of the |vim.notify| functions which send
+notifications through the notification facilities of the underlying operating
+system. Only the implementations are provided, but you have to choose which
+implementation to actually use. Here is an example of a configuration in Vim
+script:
+>
+    if executable('notify-send')
+        lua vim.notify = require('desktop_notify').notify_send
+    endif
+<
+Firs we check whether the dependency is available, and if it is we swap out
+the default implementation for our own.
+
+At the moment there is only one implementation, but the goal is to support as
+many notification systems as reasonably possible. Contributions are very
+welcome!
+
+
+==============================================================================
+REFERENCE                                           *desktop-notify-reference*
+
+Each implementation is a function with the same signature as |vim.notify|. The
+following options are recognised:
+
+    {timeout} (`number`|`nil`)  Timeout in seconds
+    {title}   (`string`|`nil`)  Title of the notification
+
+If an optional option (one that may be `nil`) is not specified the
+implementation will use whatever default value is appropriate.
+
+Note: The set of options might change in the future as the options in
+|vim.notify| become more standardised. The goal is to adhere to the official
+API as much as possible.
+
+
+------------------------------------------------------------------------------
+NOTIFY-SEND                                     *desktop_notify.notify_send()*
+
+Needs the `notify-send` command line application on GNU/Linux, displays a
+notification according the the Freedesktop Notification specification.
+
+https://specifications.freedesktop.org/notification-spec/notification-spec-latest.html
+
+
+==============================================================================
+ vim:tw=78:ts=8:noet:ft=help:norl:
